@@ -1,3 +1,50 @@
+# Segment Anything with Gradio
+
+This repository is a small personal extension of Meta AI's Segment Anything
+repository. It adds a local Gradio app for quickly testing SAM with image
+uploads, foreground/background clicks, optional box prompts, and automatic mask
+generation.
+
+The original Segment Anything code, model links, license, and citation
+information are kept below.
+
+## Quick Start: Gradio App
+
+Create or activate an environment with PyTorch installed, then install this
+repo with the Gradio extra:
+
+```zsh
+pip install -e ".[gradio]"
+```
+
+Download a SAM checkpoint from the [Model Checkpoints](#models) section. Do not
+commit `.pth` checkpoint files to GitHub; keep them local, for example under
+`checkpoints/`.
+
+Run the lightweight ViT-B model:
+
+```zsh
+python scripts/gradio_app.py \
+  --checkpoint checkpoints/sam_vit_b_01ec64.pth \
+  --model-type vit_b
+```
+
+Then open:
+
+```text
+http://127.0.0.1:7860
+```
+
+You can also run the larger ViT-H checkpoint if your machine has enough memory:
+
+```zsh
+python scripts/gradio_app.py \
+  --checkpoint checkpoints/sam_vit_h_4b8939.pth \
+  --model-type vit_h
+```
+
+## Original Segment Anything README
+
 ## Latest updates -- SAM 2: Segment Anything in Images and Videos
 
 Please check out our new release on [**Segment Anything Model 2 (SAM 2)**](https://github.com/facebookresearch/segment-anything-2).
@@ -77,7 +124,8 @@ Additionally, masks can be generated for images from the command line:
 python scripts/amg.py --checkpoint <path/to/checkpoint> --model-type <model_type> --input <image_or_folder> --output <path/to/output>
 ```
 
-Run a local Gradio UI for click prompts, box prompts, and automatic masks:
+This fork also includes a local Gradio UI for click prompts, box prompts, and
+automatic masks:
 
 ```
 pip install -e ".[gradio]"
