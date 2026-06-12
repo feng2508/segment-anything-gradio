@@ -14,5 +14,6 @@ setup(
     extras_require={
         "all": ["matplotlib", "pycocotools", "opencv-python", "onnx", "onnxruntime"],
         "dev": ["flake8", "isort", "black", "mypy"],
+        "gradio": ["gradio"],
     },
 )

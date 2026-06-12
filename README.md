@@ -77,6 +77,13 @@ Additionally, masks can be generated for images from the command line:
 python scripts/amg.py --checkpoint <path/to/checkpoint> --model-type <model_type> --input <image_or_folder> --output <path/to/output>
 ```
 
+Run a local Gradio UI for click prompts, box prompts, and automatic masks:
+
+```
+pip install -e ".[gradio]"
+python scripts/gradio_app.py --checkpoint <path/to/checkpoint> --model-type vit_b
+```
+
 See the examples notebooks on [using SAM with prompts](/notebooks/predictor_example.ipynb) and [automatically generating masks](/notebooks/automatic_mask_generator_example.ipynb) for more details.
 
 <p float="left">
